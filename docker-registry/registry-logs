@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker logs -f local-registry
+# local-registry is the name of registry.

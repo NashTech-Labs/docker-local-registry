@@ -1,0 +1,20 @@
+#!/bin/bash
+sudo docker pull registry:2 
+# pull the docker registry latest version or registry:2 version
+
+sudo docker run -d -p 5000:5000 --name local-registry registry:2.
+# -d is used for the detach mode and -p for publish port.
+# local-registry-- name
+# registry:2 -- version
+
+sudo docker pull nginx
+# pull any image on dockerhub. iam using nginx image
+
+sudo docker tag nginx localhost:5000/nginx
+# tag the image localhost with port.
+
+sudo docker push localhost:5000/nginx
+# Push the image on local registry 
+
+sudo docker logs -f local-registry
+# show the logs of local-registry.
